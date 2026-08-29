@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Painel de Expedição — GIP</title>
+<link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img class="brand-logo" src="https://public.idworks.com.br/Image/gip_426e74c0-c079-4a1d-b745-5f253f03b726.png" alt="GIP Ecommerce" />
+      <div>
+        <h1>Painel de Expedição</h1>
+        <div class="subtitle">GIP Ecommerce · atualizado a partir do idworks</div>
+      </div>
+    </div>
+    <div class="clock-block">
+      <div class="clock" id="clock">--:--:--</div>
+      <div class="date-line" id="dateLine">-</div>
+      <div class="sync-pill"><span class="sync-dot" id="syncDot"></span><span id="syncText">sincronizando…</span></div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <section class="panel">
+      <h2>Fechado <span class="count-badge" id="fechadoTotal">0</span></h2>
+      <div class="lane-list" id="fechadoList"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Enviados hoje <span class="count-badge" id="enviadosTotal">0</span></h2>
+      <div class="hourly-list" id="enviadosList"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Corte e coleta</h2>
+      <div class="schedule-list" id="scheduleList"></div>
+    </section>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

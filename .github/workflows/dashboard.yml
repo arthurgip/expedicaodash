@@ -1,0 +1,76 @@
+name: Sync dashboard e publicar no GitHub Pages
+
+# Substitui a antiga arquitetura Vercel (funcao serverless + cron-job.org +
+# Redis) - ver Handoff.md secao 1b. Aqui o proprio GitHub Actions faz o
+# papel do "cron" e da funcao serverless: busca os dados do idworks/ML a
+# cada ~10min, grava o resultado num arquivo JSON estatico e publica no
+# GitHub Pages. O estado do rastreamento de "enviados hoje" (ver
+# trackDispatchedToday em src/aggregate.mjs) fica commitado no repositorio
+# (data/prod-dispatch-state.json), ja que o runner nao tem disco persistente
+# entre execucoes.
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Evita duas execucoes disputando o push/deploy ao mesmo tempo (ex: o cron
+# disparou enquanto uma execucao anterior ainda commitava).
+concurrency:
+  group: dashboard-sync
+  cancel-in-progress: false
+
+jobs:
+  sync-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      # ML_ACCESS_TOKEN/ML_USER_ID sao opcionais - sem refresh_token, o
+      # usuario reautoriza manualmente a cada ~6h (ver Handoff.md secao 3) e
+      # atualiza esses secrets. Se nao estiverem setados, o painel cai pro
+      # horario fixo de scheduleConfig.mjs sem quebrar (ja tratado em
+      # buildScheduleReference).
+      - name: Sync idworks + Mercado Livre
+        env:
+          IDWORKS_ACCOUNT: ${{ secrets.IDWORKS_ACCOUNT }}
+          IDWORKS_EMAIL: ${{ secrets.IDWORKS_EMAIL }}
+          IDWORKS_PASSWORD: ${{ secrets.IDWORKS_PASSWORD }}
+          ML_ACCESS_TOKEN: ${{ secrets.ML_ACCESS_TOKEN }}
+          ML_USER_ID: ${{ secrets.ML_USER_ID }}
+        run: node scripts/ci-sync.mjs
+
+      # So o estado do dia (pequeno JSON) e commitado - o dashboard.json em
+      # si NUNCA vai pro historico do git, so pro artefato do Pages (proximo
+      # passo), pra nao poluir o repositorio com um commit a cada ciclo.
+      - name: Commitar estado do dia
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/prod-dispatch-state.json
+          git diff --cached --quiet || git commit -m "sync: atualiza estado de despacho [skip ci]"
+          git push
+
+      - name: Preparar artefato do Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Deploy no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,15 @@
+{
+  "name": "dashboard-expedicao",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.mjs",
+    "sync-once": "node scripts/discover-orders.mjs"
+  },
+  "dependencies": {
+    "@sparticuz/chromium": "^149.0.0",
+    "express": "^4.19.2",
+    "playwright-core": "^1.62.1"
+  }
+}

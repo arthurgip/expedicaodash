@@ -1,0 +1,16 @@
+.env
+.env*
+node_modules/
+.browser-profile/
+.claude/
+.agents/
+
+# Estado/cache LOCAL de dev - nao commitar (o estado de PRODUCAO,
+# data/prod-dispatch-state.json, e commitado de proposito pelo workflow do
+# GitHub Actions - ver .github/workflows/dashboard.yml).
+data/*.sqlite
+data/ml-tokens.json
+data/cache.json
+data/dispatch-state.json
+public/data/dashboard.json
+public/*.bak
