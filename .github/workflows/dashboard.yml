@@ -29,6 +29,12 @@ concurrency:
 jobs:
   sync-and-deploy:
     runs-on: ubuntu-latest
+    # Rede de seguranca contra um passo travado prendendo a fila (ver incidente
+    # de 03/09/2026: `npm ci` travou ~46min num run, e o `concurrency` abaixo -
+    # que so permite 1 execucao pendente por vez - foi cancelando as tentativas
+    # seguintes ate aquela travada finalmente estourar. Com timeout por passo,
+    # uma trava assim falha rapido (minutos, nao quase 1h) e libera a fila.
+    timeout-minutes: 15
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -40,6 +46,7 @@ jobs:
           node-version: 20
 
       - run: npm ci
+        timeout-minutes: 5
 
       # ML_ACCESS_TOKEN/ML_USER_ID sao opcionais - sem refresh_token, o
       # usuario reautoriza manualmente a cada ~6h (ver Handoff.md secao 3) e
@@ -54,6 +61,7 @@ jobs:
           ML_ACCESS_TOKEN: ${{ secrets.ML_ACCESS_TOKEN }}
           ML_USER_ID: ${{ secrets.ML_USER_ID }}
         run: node scripts/ci-sync.mjs
+        timeout-minutes: 6
 
       # So o estado do dia (pequeno JSON) e commitado - o dashboard.json em
       # si NUNCA vai pro historico do git, so pro artefato do Pages (proximo
