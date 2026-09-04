@@ -1,7 +1,7 @@
 # Handoff — Dashboard Expedição + tarefas relacionadas
 
-_Atualizado em 29/08/2026 (migração Vercel → GitHub Pages + Actions, e duas correções de
-métricas do painel, concluídas nesta atualização)._
+_Atualizado em 04/09/2026 (migração Vercel → GitHub Pages + Actions em 29/08, gatilho
+externo cron-job.org e fix de timeout do workflow em 03-04/09, todos concluídos)._
 
 ---
 
@@ -149,6 +149,61 @@ testado especificamente nos runners do GitHub Actions, mas o ambiente é parecid
 `idworksBrowserClientServerless.mjs`. O erro mais comum observado foi
 `net::ERR_INSUFFICIENT_RESOURCES` e timeout achando `#basic_email` com body vazio —
 ambos indicam falta de CPU/memória pro Chromium renderizar a tempo, não bug de lógica.
+
+### Gatilho externo (cron-job.org) — necessário além do `schedule` nativo
+
+O `cron: '*/10 * * * *'` do workflow (seção acima) é o gatilho "oficial", mas na prática
+o agendamento nativo do GitHub Actions se mostrou pouco confiável pra esse repositório —
+em 29/08/2026 ficou **mais de 1h30 sem disparar sozinho** nenhuma vez, mesmo com tudo
+configurado certo (`state: active`, permissões OK, sintaxe do cron OK). Não achamos causa
+definitiva (é um comportamento documentado como possível pelo próprio GitHub, "pode
+atrasar em períodos de carga alta", mas não tanto assim).
+
+Contorno: um job no **cron-job.org** (mesma conta usada antes pro Vercel) chama
+`POST /repos/arthurgip/expedicaodash/actions/workflows/dashboard.yml/dispatches` a cada
+10min, com um Personal Access Token do usuário. Isso dispara o workflow via
+`workflow_dispatch` de fora, independente do `schedule` nativo funcionar ou não (os dois
+ficam ativos ao mesmo tempo — se o nativo disparar também, só gera um sync a mais,
+inofensivo). Configuração do job cron-job.org:
+```
+URL:     https://api.github.com/repos/arthurgip/expedicaodash/actions/workflows/dashboard.yml/dispatches
+Método:  POST
+Headers: Authorization: token SEU_PAT_AQUI   (nao "Bearer" - o dispatch endpoint
+                                               respondeu 401 com "Bearer", so aceitou
+                                               com o prefixo "token")
+         Accept: application/vnd.github+json
+         Content-Type: application/json
+Corpo:   {"ref":"main"}
+Intervalo: 10 minutos
+```
+O PAT precisa dos escopos `repo` + `workflow`. Se expirar/for revogado, gerar um novo em
+`github.com/settings/tokens` e atualizar o header no job do cron-job.org.
+
+### Incidente: run travado em "waiting" bloqueando a fila (04/09/2026)
+
+Um run ficou preso em status **"waiting"** por ~9h (06:20 às 15:10 UTC), com uma
+`pending_deployment` pro ambiente `github-pages` **sem nenhum revisor configurado**
+(`reviewers: []`, `current_user_can_approve: false` até pra quem tem admin) — ninguém
+conseguia aprovar. Como o workflow só permite uma execução pendente por vez
+(`concurrency: group: dashboard-sync`), TODAS as tentativas seguintes (dispatch nativo E
+cron-job.org, de 10 em 10min) foram sendo canceladas em cascata atrás dessa travada, sem
+nunca chegar a rodar de verdade — o painel ficou ~9h sem atualizar.
+
+A política de branch do ambiente (`deployment-branch-policies`) permitia `main`
+normalmente, e não existe regra de "required reviewers" configurada — parece ter sido um
+glitch pontual do lado do GitHub, não uma configuração nossa errada.
+
+**Fix quando acontecer de novo:** achar o run mais antigo com `status: waiting` (não
+aparece com `--status in_progress`, precisa listar e olhar campo `status` de cada um) e
+cancelar manualmente:
+```bash
+gh run list --repo arthurgip/expedicaodash --limit 60 --json databaseId,status,createdAt
+# procurar o mais antigo com status "waiting"
+gh run cancel <ID_DO_RUN_TRAVADO> --repo arthurgip/expedicaodash
+```
+Isso libera a fila na hora — o próximo run pendente passa a rodar normalmente. Sinal de
+que isso está acontecendo: vários runs seguidos com `conclusion: cancelled` E `jobs: []`
+(cancelados antes de sequer começar).
 
 ### Secrets do repositório GitHub
 
