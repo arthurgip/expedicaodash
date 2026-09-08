@@ -6,7 +6,7 @@
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png",
-      "count": 162,
+      "count": 163,
       "hourly": [
         0,
         0,
@@ -16,7 +16,7 @@
         0,
         0,
         162,
-        0,
+        1,
         0,
         0,
         0,
@@ -50,6 +50,39 @@
         0,
         0,
         214,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "Temu": {
+      "groupKey": "Temu",
+      "channel": "Temu",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png",
+      "count": 10,
+      "hourly": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
         0,
         0,
         0,
@@ -324,16 +357,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
     },
-    "21109424": {
-      "channel": "Temu",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png"
-    },
-    "21110339": {
-      "channel": "Temu",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png"
-    },
     "21112880": {
       "channel": "Tiktok",
       "modality": null,
@@ -434,11 +457,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21128661": {
-      "channel": "Temu",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png"
-    },
     "21128687": {
       "channel": "Shopee",
       "modality": null,
@@ -458,11 +476,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21129225": {
-      "channel": "Temu",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png"
     },
     "21129635": {
       "channel": "Shopee",
@@ -773,11 +786,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21135860": {
-      "channel": "Temu",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png"
     },
     "21135876": {
       "channel": "Tiktok",
@@ -1274,11 +1282,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
     },
-    "21148457": {
-      "channel": "Temu",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png"
-    },
     "21148582": {
       "channel": "Shopee",
       "modality": null,
@@ -1353,16 +1356,6 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
-    "21149465": {
-      "channel": "Temu",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png"
-    },
-    "21149466": {
-      "channel": "Temu",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png"
     },
     "21149829": {
       "channel": "Shopee",
@@ -1769,11 +1762,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21157487": {
-      "channel": "Temu",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png"
-    },
     "21157559": {
       "channel": "Tiktok",
       "modality": null,
@@ -1993,11 +1981,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21163174": {
-      "channel": "Temu",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png"
     },
     "21163479": {
       "channel": "Shopee",
@@ -3463,11 +3446,6 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
-    "21188564": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21188604": {
       "channel": "Shein",
@@ -5698,6 +5676,11 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "21237293": {
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
     }
   }
 }
