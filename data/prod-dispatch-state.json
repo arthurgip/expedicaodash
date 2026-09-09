@@ -39,7 +39,7 @@
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png",
-      "count": 128,
+      "count": 129,
       "hourly": [
         0,
         0,
@@ -52,7 +52,7 @@
         0,
         0,
         0,
-        0,
+        1,
         0,
         0,
         0,
@@ -72,7 +72,7 @@
       "channel": "Mercado Livre",
       "modality": "Flex",
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png",
-      "count": 3,
+      "count": 4,
       "hourly": [
         0,
         0,
@@ -85,7 +85,7 @@
         0,
         0,
         0,
-        0,
+        1,
         0,
         0,
         0,
@@ -234,11 +234,6 @@
     }
   },
   "snapshot": {
-    "20468665": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "21252683": {
       "channel": "Shopee",
       "modality": null,
@@ -1049,11 +1044,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
     },
-    "21289903": {
-      "channel": "Mercado Livre",
-      "modality": "Flex",
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "21289959": {
       "channel": "Shopee",
       "modality": null,
@@ -1098,6 +1088,26 @@
       "channel": "Shein",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "21291542": {
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "21291606": {
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "21291731": {
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "21291735": {
+      "channel": "Tiktok",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
     }
   }
 }
