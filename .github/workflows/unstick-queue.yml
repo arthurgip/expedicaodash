@@ -1,0 +1,51 @@
+name: Destravar runs presos em "waiting"
+
+# Contorno pra um bug/glitch do GitHub Actions ja visto duas vezes (29/08 e
+# 09/09/2026): um run do workflow "dashboard.yml" as vezes fica preso em
+# status "waiting" por horas (pending_deployment pro ambiente github-pages
+# sem NENHUM revisor configurado - ninguem consegue aprovar, nem admin). O
+# workflow "dashboard.yml" so permite uma execucao pendente por vez
+# (concurrency: dashboard-sync), entao esse run travado bloqueia TODAS as
+# tentativas seguintes em cascata (cancelled, "jobs": []) ate alguem
+# cancelar o travado manualmente - ver Handoff.md.
+#
+# Esse workflow aqui roda de forma INDEPENDENTE (sem "environment", sem
+# compartilhar o `concurrency` group do dashboard.yml, entao nunca fica
+# preso do mesmo jeito) e cancela automaticamente qualquer run do
+# dashboard.yml que esteja em "waiting" ha mais de 10 minutos - tempo mais
+# que suficiente pra uma aprovacao real acontecer, se alguma vez existir
+# revisor configurado (hoje nao existe, entao "waiting" sempre significa
+# travado, nunca uma aprovacao pendente legitima).
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  actions: write
+
+jobs:
+  unstick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Cancelar runs travados em "waiting" ha mais de 10min
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -e
+          now=$(date -u +%s)
+          gh run list --repo "$REPO" --workflow dashboard.yml --limit 50 \
+            --json databaseId,status,createdAt \
+            --jq '.[] | select(.status == "waiting") | [.databaseId, .createdAt] | @tsv' \
+          | while IFS=$'\t' read -r run_id created_at; do
+              created_ts=$(date -u -d "$created_at" +%s)
+              age_min=$(( (now - created_ts) / 60 ))
+              if [ "$age_min" -ge 10 ]; then
+                echo "Run $run_id preso em 'waiting' ha ${age_min}min - cancelando."
+                gh run cancel "$run_id" --repo "$REPO" || true
+              else
+                echo "Run $run_id em 'waiting' ha so ${age_min}min - ainda dentro da tolerancia, deixando."
+              fi
+            done
