@@ -6,7 +6,7 @@
       "channel": "Shein",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png",
-      "count": 2,
+      "count": 7,
       "hourly": [
         0,
         0,
@@ -16,7 +16,7 @@
         0,
         0,
         0,
-        0,
+        5,
         0,
         0,
         0,
@@ -39,7 +39,7 @@
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png",
-      "count": 30,
+      "count": 75,
       "hourly": [
         0,
         0,
@@ -49,7 +49,7 @@
         0,
         0,
         0,
-        30,
+        75,
         0,
         0,
         0,
@@ -99,74 +99,42 @@
         0,
         0
       ]
+    },
+    "Temu": {
+      "groupKey": "Temu",
+      "channel": "Temu",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png",
+      "count": 2,
+      "hourly": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
     }
   },
   "snapshot": {
-    "21515356": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21517150": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21517194": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21518373": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21518569": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21520668": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21523993": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21538561": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21540103": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21542540": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21546830": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21550224": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21552007": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "21556839": {
       "channel": "Tiktok",
       "modality": null,
@@ -407,11 +375,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21567763": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "21567797": {
       "channel": "Tiktok",
       "modality": null,
@@ -426,11 +389,6 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
-    "21568020": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21568066": {
       "channel": "Tiktok",
@@ -466,11 +424,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21568463": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21568535": {
       "channel": "Shopee",
@@ -521,11 +474,6 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
-    "21569030": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21569061": {
       "channel": "Shopee",
@@ -591,11 +539,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21569809": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21569813": {
       "channel": "Shopee",
@@ -666,11 +609,6 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
-    "21571239": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21571270": {
       "channel": "Shein",
@@ -797,16 +735,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21573105": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21573133": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "21573144": {
       "channel": "Shopee",
       "modality": null,
@@ -821,11 +749,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21574033": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21574120": {
       "channel": "Shopee",
@@ -851,11 +774,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21574458": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21574505": {
       "channel": "Shein",
@@ -977,11 +895,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
     },
-    "21576995": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "21577024": {
       "channel": "Shopee",
       "modality": null,
@@ -1042,11 +955,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
     },
-    "21577986": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "21578006": {
       "channel": "Shopee",
       "modality": null,
@@ -1056,11 +964,6 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
-    "21578190": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21578206": {
       "channel": "Shopee",
@@ -1087,20 +990,10 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21578579": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "21578600": {
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
-    "21578603": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21578671": {
       "channel": "Shopee",
@@ -1121,11 +1014,6 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
-    "21579013": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21579034": {
       "channel": "Shopee",
@@ -1257,20 +1145,10 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
     },
-    "21580497": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "21580587": {
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
-    "21580596": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21580623": {
       "channel": "Tiktok",
@@ -1291,11 +1169,6 @@
       "channel": "Shein",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
-    },
-    "21581052": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21581148": {
       "channel": "Shopee",
@@ -1452,20 +1325,10 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21583795": {
-      "channel": "Temu",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png"
-    },
     "21583800": {
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21583802": {
-      "channel": "Temu",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png"
     },
     "21583810": {
       "channel": "Shopee",
@@ -1562,11 +1425,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
     },
-    "21584801": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "21584810": {
       "channel": "Shopee",
       "modality": null,
@@ -1657,11 +1515,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21585412": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "21585433": {
       "channel": "Tiktok",
       "modality": null,
@@ -1677,30 +1530,15 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21585583": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "21585607": {
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21585639": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "21585714": {
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21585722": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21585785": {
       "channel": "Shopee",
@@ -1736,11 +1574,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21586247": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21586260": {
       "channel": "Shein",
@@ -1812,16 +1645,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
     },
-    "21586833": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21586835": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "21586838": {
       "channel": "Shein",
       "modality": null,
@@ -1851,11 +1674,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21587197": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21587214": {
       "channel": "Shopee",
@@ -1942,11 +1760,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
     },
-    "21587926": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "21587970": {
       "channel": "Shopee",
       "modality": null,
@@ -1987,11 +1800,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
     },
-    "21588388": {
-      "channel": "Shein",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
-    },
     "21588416": {
       "channel": "Shopee",
       "modality": null,
@@ -2001,11 +1809,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21588558": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21588586": {
       "channel": "Shopee",
@@ -2027,11 +1830,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
     },
-    "21588704": {
-      "channel": "Shein",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
-    },
     "21588707": {
       "channel": "Tiktok",
       "modality": null,
@@ -2041,11 +1839,6 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
-    "21588843": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21588889": {
       "channel": "Tiktok",
@@ -2137,11 +1930,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21590073": {
-      "channel": "Shein",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
-    },
     "21590095": {
       "channel": "Shopee",
       "modality": null,
@@ -2151,11 +1939,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21590222": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21590268": {
       "channel": "Shopee",
@@ -2177,11 +1960,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21590552": {
-      "channel": "Shein",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
-    },
     "21590562": {
       "channel": "Tiktok",
       "modality": null,
@@ -2191,11 +1969,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21590634": {
-      "channel": "Shein",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
     },
     "21590637": {
       "channel": "Shopee",
@@ -2216,6 +1989,21 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "21590922": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "21590976": {
+      "channel": "Tiktok",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
+    },
+    "21590981": {
+      "channel": "Tiktok",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
     }
   }
 }
