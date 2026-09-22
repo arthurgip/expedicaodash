@@ -33,6 +33,39 @@
         0,
         0
       ]
+    },
+    "Mercado Livre · Flex": {
+      "groupKey": "Mercado Livre · Flex",
+      "channel": "Mercado Livre",
+      "modality": "Flex",
+      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png",
+      "count": 1,
+      "hourly": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
     }
   },
   "snapshot": {
@@ -1439,11 +1472,6 @@
     "21733092": {
       "channel": "Mercado Livre",
       "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21733152": {
-      "channel": "Mercado Livre",
-      "modality": "Flex",
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "21733343": {
