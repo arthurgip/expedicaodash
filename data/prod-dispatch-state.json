@@ -105,7 +105,7 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png",
-      "count": 272,
+      "count": 282,
       "hourly": [
         0,
         0,
@@ -123,7 +123,7 @@
         0,
         0,
         0,
-        28,
+        38,
         0,
         0,
         0,
@@ -284,27 +284,12 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21886391": {
-      "channel": "Shopee",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
     "21887034": {
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21887231": {
-      "channel": "Shopee",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
     "21887719": {
-      "channel": "Shopee",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21888515": {
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
@@ -315,21 +300,6 @@
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
     "21888836": {
-      "channel": "Shopee",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21888960": {
-      "channel": "Shopee",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21889105": {
-      "channel": "Shopee",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21889245": {
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
@@ -354,16 +324,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21889914": {
-      "channel": "Shopee",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21889981": {
-      "channel": "Shopee",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
     "21889992": {
       "channel": "Shopee",
       "modality": null,
@@ -379,11 +339,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21890998": {
-      "channel": "Shopee",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
     "21891269": {
       "channel": "Shopee",
       "modality": null,
@@ -395,11 +350,6 @@
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
     "21891591": {
-      "channel": "Shopee",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21891623": {
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
@@ -1493,6 +1443,26 @@
       "channel": "Shein",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "21928366": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "21928411": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "21928454": {
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "21928535": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     }
   }
 }
