@@ -33,6 +33,39 @@
         0,
         0
       ]
+    },
+    "Temu": {
+      "groupKey": "Temu",
+      "channel": "Temu",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png",
+      "count": 2,
+      "hourly": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
     }
   },
   "snapshot": {
@@ -2166,11 +2199,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21884004": {
-      "channel": "Temu",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png"
-    },
     "21884240": {
       "channel": "Shopee",
       "modality": null,
@@ -2435,11 +2463,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "21887061": {
-      "channel": "Temu",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/temu_logo_100x50.png"
     },
     "21887231": {
       "channel": "Shopee",
