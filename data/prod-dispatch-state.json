@@ -138,7 +138,7 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png",
-      "count": 45,
+      "count": 50,
       "hourly": [
         0,
         0,
@@ -150,7 +150,7 @@
         0,
         0,
         0,
-        45,
+        50,
         0,
         0,
         0,
@@ -208,6 +208,16 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
+    "21858390": {
+      "channel": "Mercado Livre",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
+    },
+    "21861416": {
+      "channel": "Mercado Livre",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
+    },
     "21895188": {
       "channel": "Shein",
       "modality": null,
@@ -248,30 +258,20 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
     },
-    "21918216": {
-      "channel": "Tiktok",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
-    "21920608": {
-      "channel": "Tiktok",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
     "21926459": {
       "channel": "Shein",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
     },
-    "21942816": {
-      "channel": "Tiktok",
+    "21928581": {
+      "channel": "Shopee",
       "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "21944614": {
-      "channel": "Tiktok",
+    "21932102": {
+      "channel": "Shopee",
       "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
     "21945986": {
       "channel": "Mercado Livre",
@@ -408,11 +408,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
     },
-    "21949034": {
-      "channel": "Tiktok",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
     "21949063": {
       "channel": "Shopee",
       "modality": null,
@@ -454,6 +449,11 @@
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
     "21949438": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "21949687": {
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
