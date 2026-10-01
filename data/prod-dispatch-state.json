@@ -1,6 +1,40 @@
 {
   "date": "2026-10-01",
-  "groups": {},
+  "groups": {
+    "Shein": {
+      "groupKey": "Shein",
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png",
+      "count": 1,
+      "hourly": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
   "snapshot": {
     "21717585": {
       "channel": "idworks",
@@ -41,11 +75,6 @@
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "21983687": {
-      "channel": "Shein",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
     },
     "21984191": {
       "channel": "Tiktok",
@@ -1976,6 +2005,16 @@
       "channel": "Shein",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "22016596": {
+      "channel": "Tiktok",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
+    },
+    "22016609": {
+      "channel": "Tiktok",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
     }
   }
 }
