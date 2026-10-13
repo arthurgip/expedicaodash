@@ -6,10 +6,10 @@
       "channel": "idworks",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/idworksv2.png",
-      "count": 2,
+      "count": 3,
       "hourly": [
         0,
-        2,
+        3,
         0,
         0,
         0,
@@ -36,11 +36,6 @@
     }
   },
   "snapshot": {
-    "21719648": {
-      "channel": "idworks",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/idworksv2.png"
-    },
     "21720951": {
       "channel": "idworks",
       "modality": null,
@@ -10035,6 +10030,11 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
+    },
+    "22405415": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     }
   }
 }
