@@ -105,14 +105,14 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png",
-      "count": 3,
+      "count": 4,
       "hourly": [
         0,
         0,
         0,
         0,
         1,
-        2,
+        3,
         0,
         0,
         0,
@@ -135,11 +135,6 @@
     }
   },
   "snapshot": {
-    "22278671": {
-      "channel": "Tiktok",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
     "22279967": {
       "channel": "Tiktok",
       "modality": null,
@@ -10131,6 +10126,11 @@
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
     },
     "22406083": {
+      "channel": "Tiktok",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
+    },
+    "22406169": {
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
