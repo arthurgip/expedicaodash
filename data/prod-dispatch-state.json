@@ -1,12 +1,41 @@
 {
   "date": "2026-10-13",
-  "groups": {},
-  "snapshot": {
-    "21717585": {
+  "groups": {
+    "idworks": {
+      "groupKey": "idworks",
       "channel": "idworks",
       "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/idworksv2.png"
-    },
+      "logoUrl": "https://public.idworks.com.br/Image/logo/idworksv2.png",
+      "count": 1,
+      "hourly": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "snapshot": {
     "21718672": {
       "channel": "idworks",
       "modality": null,
@@ -9998,6 +10027,11 @@
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
     "22405126": {
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "22405186": {
       "channel": "Shein",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
