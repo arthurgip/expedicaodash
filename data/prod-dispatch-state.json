@@ -6,12 +6,12 @@
       "channel": "idworks",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/idworksv2.png",
-      "count": 4,
+      "count": 6,
       "hourly": [
         0,
         3,
         1,
-        0,
+        2,
         0,
         0,
         0,
@@ -69,16 +69,6 @@
     }
   },
   "snapshot": {
-    "21722411": {
-      "channel": "idworks",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/idworksv2.png"
-    },
-    "21723111": {
-      "channel": "idworks",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/idworksv2.png"
-    },
     "21723644": {
       "channel": "idworks",
       "modality": null,
@@ -10068,6 +10058,16 @@
       "channel": "Shein",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "22405654": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "22405681": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     }
   }
 }
