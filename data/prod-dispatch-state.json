@@ -1,6 +1,73 @@
 {
   "date": "2026-10-23",
-  "groups": {},
+  "groups": {
+    "Mercado Livre": {
+      "groupKey": "Mercado Livre",
+      "channel": "Mercado Livre",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png",
+      "count": 38,
+      "hourly": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        38,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "Mercado Livre · Flex": {
+      "groupKey": "Mercado Livre · Flex",
+      "channel": "Mercado Livre",
+      "modality": "Flex",
+      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png",
+      "count": 1,
+      "hourly": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
   "snapshot": {
     "21717585": {
       "channel": "idworks",
@@ -37,17 +104,7 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/idworksv2.png"
     },
-    "22231839": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "22392098": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22405570": {
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
@@ -72,22 +129,12 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
-    "22536436": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "22574641": {
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "22589821": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22604389": {
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
@@ -112,21 +159,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
-    "22629215": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22638137": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22648092": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "22650397": {
       "channel": "Mercado Livre",
       "modality": null,
@@ -142,22 +174,12 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
-    "22655377": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "22655814": {
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "22656425": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22657269": {
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
@@ -177,17 +199,7 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
-    "22671455": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "22671736": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22672418": {
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
@@ -198,11 +210,6 @@
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "22674131": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22675304": {
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
@@ -227,42 +234,12 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
-    "22678874": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "22683748": {
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
-    "22686161": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "22688700": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22689057": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22689493": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22689923": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22690497": {
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
@@ -287,17 +264,7 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
-    "22695539": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "22696176": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22697320": {
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
@@ -327,27 +294,12 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
-    "22700107": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "22700555": {
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "22701739": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22702542": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22703501": {
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
@@ -363,11 +315,6 @@
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "22704601": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22704762": {
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
@@ -427,22 +374,7 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
-    "22711793": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22713479": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "22713518": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22715095": {
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
@@ -466,11 +398,6 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
-    "22718401": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "22718425": {
       "channel": "Tiktok",
@@ -573,11 +500,6 @@
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
     },
     "22723544": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
-    "22723648": {
       "channel": "Mercado Livre",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
@@ -701,11 +623,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "22726176": {
-      "channel": "Mercado Livre",
-      "modality": "Flex",
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "22726186": {
       "channel": "Shopee",
@@ -1282,11 +1199,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "22736285": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "22736301": {
       "channel": "Shopee",
       "modality": null,
@@ -1326,11 +1238,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "22736799": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "22736815": {
       "channel": "Tiktok",
@@ -1451,11 +1358,6 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
-    "22738510": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "22738582": {
       "channel": "Shopee",
@@ -1597,11 +1499,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "22740026": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "22740067": {
       "channel": "Tiktok",
       "modality": null,
@@ -1697,11 +1594,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "22741008": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "22741011": {
       "channel": "Shein",
       "modality": null,
@@ -1721,11 +1613,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "22741109": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "22741221": {
       "channel": "Mercado Livre",
@@ -1782,20 +1669,10 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "22741809": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
-    },
     "22741849": {
       "channel": "Shein",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
-    },
-    "22741937": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "22741986": {
       "channel": "Shopee",
@@ -1881,11 +1758,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "22742999": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "22743025": {
       "channel": "Shein",
@@ -2042,6 +1914,11 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
+    "22744625": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
     "22744642": {
       "channel": "Shein",
       "modality": null,
@@ -2143,6 +2020,26 @@
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
     "22745985": {
+      "channel": "Tiktok",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
+    },
+    "22746071": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "22746077": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "22746083": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "22746143": {
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
