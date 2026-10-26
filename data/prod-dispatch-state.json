@@ -4303,6 +4303,21 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
+    },
+    "22816134": {
+      "channel": "Shopee",
+      "modality": "Direta",
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "22816151": {
+      "channel": "Mercado Livre",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
+    },
+    "22816163": {
+      "channel": "Mercado Livre",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     }
   }
 }
