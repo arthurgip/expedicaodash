@@ -138,7 +138,7 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png",
-      "count": 294,
+      "count": 295,
       "hourly": [
         0,
         0,
@@ -149,7 +149,7 @@
         0,
         0,
         22,
-        272,
+        273,
         0,
         0,
         0,
@@ -1161,11 +1161,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
-    "22807972": {
-      "channel": "Tiktok",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
     "22808051": {
       "channel": "Shopee",
       "modality": null,
@@ -1645,6 +1640,16 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
+    },
+    "22818311": {
+      "channel": "Mercado Livre",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
+    },
+    "22818376": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     }
   }
 }
