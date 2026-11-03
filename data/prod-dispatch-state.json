@@ -105,7 +105,7 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png",
-      "count": 7,
+      "count": 9,
       "hourly": [
         0,
         0,
@@ -113,7 +113,7 @@
         0,
         0,
         4,
-        3,
+        5,
         0,
         0,
         0,
@@ -135,16 +135,6 @@
     }
   },
   "snapshot": {
-    "22941070": {
-      "channel": "Tiktok",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
-    "22941453": {
-      "channel": "Tiktok",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
     "22941473": {
       "channel": "Tiktok",
       "modality": null,
@@ -10131,6 +10121,16 @@
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
     "23048106": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "23048333": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "23048334": {
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
