@@ -243,20 +243,11 @@ horário do ML ao vivo em produção — sem isso, cai pro horário fixo automat
 
 ---
 
-## 2. Credenciais (.env, não versionado)
+## 2. Credenciais
 
-```
-IDWORKS_ACCOUNT=gip
-IDWORKS_EMAIL=arthurgip2023@gmail.com
-IDWORKS_PASSWORD=art21
-
-ML_CLIENT_ID=4523762985355157
-ML_CLIENT_SECRET=<no .env, não repetir aqui>
-ML_REDIRECT_URI=https://httpbin.org/anything
-```
-
-Essas mesmas credenciais (IDWORKS_*) ficam também como GitHub Secrets do repositório
-`arthurgip/expedicaodash` (ver seção 1b) — nunca commitadas.
+Nenhuma credencial é escrita neste arquivo. O painel usa `IDWORKS_ACCOUNT`, `IDWORKS_EMAIL` e
+`IDWORKS_PASSWORD`, que ficam como GitHub Secrets do repositório `arthurgip/expedicaodash`
+(ver seção 1b) e no `.env` local, nunca commitados.
 
 ---
 
