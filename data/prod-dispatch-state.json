@@ -72,7 +72,7 @@
       "channel": "Mercado Livre",
       "modality": "Flex",
       "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png",
-      "count": 5,
+      "count": 6,
       "hourly": [
         0,
         0,
@@ -88,7 +88,7 @@
         0,
         1,
         0,
-        0,
+        1,
         0,
         0,
         0,
@@ -171,7 +171,7 @@
       "channel": "Shopee",
       "modality": "Direta",
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png",
-      "count": 2,
+      "count": 3,
       "hourly": [
         0,
         0,
@@ -187,7 +187,7 @@
         0,
         0,
         0,
-        0,
+        1,
         0,
         0,
         0,
@@ -204,7 +204,7 @@
       "channel": "Nuvem Shop",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/nuvemshop.png",
-      "count": 1,
+      "count": 2,
       "hourly": [
         0,
         0,
@@ -220,7 +220,7 @@
         1,
         0,
         0,
-        0,
+        1,
         0,
         0,
         0,
@@ -5984,11 +5984,6 @@
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
     },
-    "23274560": {
-      "channel": "Shopee",
-      "modality": "Direta",
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
     "23274598": {
       "channel": "Shein",
       "modality": null,
@@ -6003,11 +5998,6 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "23274775": {
-      "channel": "Mercado Livre",
-      "modality": "Flex",
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "23274892": {
       "channel": "Shein",
@@ -6163,11 +6153,6 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
-    },
-    "23276762": {
-      "channel": "Nuvem Shop",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/nuvemshop.png"
     },
     "23276849": {
       "channel": "Tiktok",
@@ -6480,6 +6465,46 @@
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
     },
     "23280422": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "23280502": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "23280605": {
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "23280631": {
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "23280640": {
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "23280641": {
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "23280661": {
+      "channel": "Tiktok",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
+    },
+    "23280699": {
+      "channel": "Tiktok",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
+    },
+    "23280720": {
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
