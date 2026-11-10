@@ -105,7 +105,7 @@
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png",
-      "count": 507,
+      "count": 508,
       "hourly": [
         0,
         0,
@@ -126,7 +126,7 @@
         27,
         12,
         0,
-        0,
+        1,
         0,
         0,
         0,
@@ -1157,11 +1157,6 @@
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     },
     "23297137": {
-      "channel": "Shopee",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
-    },
-    "23297161": {
       "channel": "Shopee",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
@@ -3415,6 +3410,41 @@
       "channel": "Shein",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "23339420": {
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "23339539": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "23339607": {
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "23339615": {
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "23339619": {
+      "channel": "Tiktok",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
+    },
+    "23339641": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "23339740": {
+      "channel": "Tiktok",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
     }
   }
 }
