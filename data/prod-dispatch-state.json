@@ -1,6 +1,40 @@
 {
   "date": "2026-11-11",
-  "groups": {},
+  "groups": {
+    "Mercado Livre": {
+      "groupKey": "Mercado Livre",
+      "channel": "Mercado Livre",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png",
+      "count": 1,
+      "hourly": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
   "snapshot": {
     "21717585": {
       "channel": "idworks",
@@ -41,11 +75,6 @@
       "channel": "idworks",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/idworksv2.png"
-    },
-    "23241452": {
-      "channel": "Mercado Livre",
-      "modality": null,
-      "logoUrl": "https://public.idworks.com.br/Image/logo/mercadolivre.png"
     },
     "23262719": {
       "channel": "Tiktok",
@@ -4381,6 +4410,51 @@
       "channel": "Tiktok",
       "modality": null,
       "logoUrl": "https://public.idworks.com.br/Image/logo/tiktok.png"
+    },
+    "23350905": {
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "23351004": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "23351091": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "23351097": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "23351119": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "23351139": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "23351225": {
+      "channel": "Shein",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shein-logo.png"
+    },
+    "23351263": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
+    },
+    "23351287": {
+      "channel": "Shopee",
+      "modality": null,
+      "logoUrl": "https://public.idworks.com.br/Image/logo/shopee.png"
     }
   }
 }
