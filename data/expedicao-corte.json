@@ -1,0 +1,327 @@
+[
+ {
+  "canal": "Mercado Livre",
+  "quando": "Seg a Qua",
+  "corte": "11:30",
+  "coleta": "12:30–14:30",
+  "nota": "",
+  "dias": "1,2,3",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Mercado Livre",
+  "quando": "Quinta",
+  "corte": "10:45",
+  "coleta": "11:45–13:45",
+  "nota": "",
+  "dias": "4",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Mercado Livre",
+  "quando": "Sexta",
+  "corte": "10:00",
+  "coleta": "11:00–13:00",
+  "nota": "",
+  "dias": "5",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Mercado Livre",
+  "quando": "Sáb a Dom",
+  "corte": "",
+  "coleta": "",
+  "nota": "Sem coleta",
+  "dias": "6,0",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Mercado Livre",
+  "quando": "Flex",
+  "corte": "13:00",
+  "coleta": "15:00–21:00",
+  "nota": "Motoboy até 18:00",
+  "dias": "1,2,3,4,5",
+  "modalidade": "Flex",
+  "limite": "18:00"
+ },
+ {
+  "canal": "Mercado Livre",
+  "quando": "Coletas de hoje",
+  "corte": "",
+  "coleta": "",
+  "nota": "Coleta extra",
+  "dias": "obs",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Shopee",
+  "quando": "Entrega Direta — todo dia",
+  "corte": "13:00",
+  "coleta": "18:00",
+  "nota": "Entrega ao cliente",
+  "dias": "0,1,2,3,4,5,6",
+  "modalidade": "Entrega direta"
+ },
+ {
+  "canal": "Shopee",
+  "quando": "Padrão — ter a sex",
+  "corte": "13:00",
+  "coleta": "",
+  "nota": "",
+  "dias": "2,3,4,5",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Shopee",
+  "quando": "Padrão — sábado",
+  "corte": "",
+  "coleta": "",
+  "nota": "Prazo: próximo dia útil",
+  "dias": "6",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Shopee",
+  "quando": "Padrão — domingo",
+  "corte": "",
+  "coleta": "",
+  "nota": "Prazo: 2 dias úteis",
+  "dias": "0",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Shopee",
+  "quando": "Padrão — segunda",
+  "corte": "",
+  "coleta": "",
+  "nota": "Prazo: próximo dia útil",
+  "dias": "1",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Shopee",
+  "quando": "Padrão — feriado",
+  "corte": "",
+  "coleta": "",
+  "nota": "Prazo: próximo dia útil",
+  "dias": "",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Shein",
+  "quando": "Todos os dias",
+  "corte": "",
+  "coleta": "",
+  "nota": "Sem corte · prazo 1 dia útil",
+  "dias": "0,1,2,3,4,5,6",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Tiktok",
+  "quando": "Todos os dias",
+  "corte": "",
+  "coleta": "",
+  "nota": "Sem corte · prazo 2 dias úteis",
+  "dias": "0,1,2,3,4,5,6",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Shopee",
+  "quando": "Ponto seg a sex",
+  "corte": "",
+  "coleta": "08:00–19:00",
+  "rotulo": "Envio",
+  "nota": "",
+  "dias": "1,2,3,4,5",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Shopee",
+  "quando": "Ponto sabado",
+  "corte": "",
+  "coleta": "09:00–13:00",
+  "rotulo": "Envio",
+  "nota": "",
+  "dias": "6",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Shopee",
+  "quando": "Ponto domingo",
+  "corte": "",
+  "coleta": "",
+  "nota": "Ponto fechado",
+  "dias": "0",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Shopee",
+  "quando": "Coletas de hoje (observado)",
+  "corte": "",
+  "coleta": "10:00–17:00",
+  "nota": "627 coletados",
+  "dias": "obs",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Shein",
+  "quando": "Ponto seg a sex",
+  "corte": "",
+  "coleta": "08:00–18:00",
+  "rotulo": "Coleta",
+  "nota": "",
+  "dias": "1,2,3,4,5",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Shein",
+  "quando": "Ponto sabado",
+  "corte": "",
+  "coleta": "",
+  "nota": "Sem coleta",
+  "dias": "6",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Shein",
+  "quando": "Ponto domingo",
+  "corte": "",
+  "coleta": "",
+  "nota": "Sem coleta",
+  "dias": "0",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Shein",
+  "quando": "Coletas de hoje (observado)",
+  "corte": "",
+  "coleta": "15:00–18:00",
+  "nota": "174 coletados",
+  "dias": "obs",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Tiktok",
+  "quando": "Ponto seg a sex",
+  "corte": "",
+  "coleta": "08:00–16:00",
+  "rotulo": "Envio",
+  "nota": "",
+  "dias": "1,2,3,4,5",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Tiktok",
+  "quando": "Ponto sabado",
+  "corte": "",
+  "coleta": "08:00–11:00",
+  "rotulo": "Envio",
+  "nota": "",
+  "dias": "6",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Tiktok",
+  "quando": "Ponto domingo",
+  "corte": "",
+  "coleta": "",
+  "nota": "Ponto fechado",
+  "dias": "0",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Tiktok",
+  "quando": "Coletas de hoje (observado)",
+  "corte": "",
+  "coleta": "15:00–16:00",
+  "nota": "151 coletados",
+  "dias": "obs",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Nuvemshop",
+  "quando": "Ponto seg a sex",
+  "corte": "",
+  "coleta": "09:00–18:00",
+  "rotulo": "Envio",
+  "nota": "",
+  "dias": "1,2,3,4,5",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Nuvemshop",
+  "quando": "Ponto sabado",
+  "corte": "",
+  "coleta": "",
+  "nota": "Ponto fechado",
+  "dias": "6",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Nuvemshop",
+  "quando": "Ponto domingo",
+  "corte": "",
+  "coleta": "",
+  "nota": "Ponto fechado",
+  "dias": "0",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Nuvemshop",
+  "quando": "Coletas de hoje (observado)",
+  "corte": "",
+  "coleta": "11:00–12:00",
+  "nota": "1 coletados",
+  "dias": "obs",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Temu",
+  "quando": "Todos os dias",
+  "corte": "",
+  "coleta": "",
+  "nota": "Sem corte · prazo 2 dias úteis",
+  "dias": "0,1,2,3,4,5,6",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Temu",
+  "quando": "Ponto seg a sex",
+  "corte": "",
+  "coleta": "08:00–16:00",
+  "rotulo": "Envio",
+  "nota": "",
+  "dias": "1,2,3,4,5",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Temu",
+  "quando": "Ponto sabado",
+  "corte": "",
+  "coleta": "08:00–11:00",
+  "rotulo": "Envio",
+  "nota": "",
+  "dias": "6",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Temu",
+  "quando": "Ponto domingo",
+  "corte": "",
+  "coleta": "",
+  "nota": "Ponto fechado",
+  "dias": "0",
+  "modalidade": "Padrão"
+ },
+ {
+  "canal": "Nuvemshop",
+  "quando": "Entrega direta (motoboy)",
+  "corte": "13:00",
+  "coleta": "15:00–21:00",
+  "nota": "Motoboy até 18:00",
+  "dias": "1,2,3,4,5",
+  "modalidade": "Entrega direta",
+  "limite": "18:00"
+ }
+]

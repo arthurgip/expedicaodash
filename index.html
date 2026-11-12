@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="pt-BR" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel de Expedição</title>
+<!-- Cópia do dash aprovado no claude.ai (tema "cartão de canal com degradê"). Os dados vêm de data/*.json,
+     gerados a cada 10 min por Operacao/Rotinas/painel-expedicao/atualiza.cmd. Sem segredos aqui. -->
+<style>
+  :root {
+    --bg: #f0f0f0; --panel: #ffffff; --panel-2: #f5f5f5; --line: #e3e3e3; --fg: #121212; --muted: #5e5e5e; --calm: #9a9a9a;
+    --accent: #fbc105; --accent-fg: #121212; --btn2: #e6e6e6; --icon-bg: #ececec;
+    --risk: #c62828; --risk-soft: #fdecea; --warn: #c2540a; --info: #2563c9; --ok: #1e8a4c;
+    --c-ml: #f2cf00; --c-shopee: #ee4d2d; --c-shein: #111111; --c-tiktok: #00b5ad; --c-outros: #8a8f98;
+    --r: 12px; --r-card: 20px; color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg: #121212; --panel: #1f1f1f; --panel-2: #2a2a2a; --line: #333333; --fg: #ffffff; --muted: #b8b8b8; --calm: #6e6e6e;
+    --btn2: #373737; --icon-bg: #373737;
+    --risk: #ff6b5e; --risk-soft: #3d1d1a; --warn: #ff9147; --info: #6ea8ff; --ok: #4cc38a;
+    --c-ml: #ffe600; --c-shopee: #ee4d2d; --c-shein: #e8e8e8; --c-tiktok: #25f4ee; color-scheme: dark } }
+  :root[data-theme="dark"] {
+    --bg: #121212; --panel: #1f1f1f; --panel-2: #2a2a2a; --line: #333333; --fg: #ffffff; --muted: #b8b8b8; --calm: #6e6e6e;
+    --btn2: #373737; --icon-bg: #373737;
+    --risk: #ff6b5e; --risk-soft: #3d1d1a; --warn: #ff9147; --info: #6ea8ff; --ok: #4cc38a;
+    --c-ml: #ffe600; --c-shopee: #ee4d2d; --c-shein: #e8e8e8; --c-tiktok: #25f4ee; color-scheme: dark }
+  html, body { margin: 0; }
+  [hidden] { display: none !important; }
+  body { background: var(--bg); color: var(--fg); font-family: "Inter", "Segoe UI", system-ui, sans-serif; font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums; }
+  .exp { display: grid; gap: 20px; max-width: 1360px; margin: 0 auto; padding: 0 16px 56px; }
+  .exp * { box-sizing: border-box; }
+  .exp p, .exp h1, .exp h2, .exp h3 { margin: 0; }
+  .exp h1 { font-size: 24px; font-weight: 600; letter-spacing: -0.01em; }
+  .exp h2 { font-size: 18px; font-weight: 500; display: flex; align-items: center; gap: 12px; }
+  .muted { color: var(--muted); font-size: 13px; }
+  svg.i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+  .ico { width: 40px; height: 40px; border-radius: 50%; background: var(--icon-bg); color: var(--fg); display: inline-grid; place-items: center; flex: none; font-weight: 600; overflow: hidden; }
+  .ico svg.i { width: 19px; height: 19px; }
+  .topo { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .marca { display: flex; align-items: center; gap: 12px; }
+  .selo { width: 40px; height: 40px; border-radius: 12px; background: var(--accent); color: var(--accent-fg); display: grid; place-items: center; flex: none; }
+  .selo svg.i { width: 22px; height: 22px; stroke-width: 2; }
+  .marca small { display: block; color: var(--muted); font-size: 12.5px; }
+  .seg { display: inline-flex; background: var(--btn2); border-radius: 999px; padding: 3px; gap: 2px; }
+  .seg button { display: inline-flex; align-items: center; gap: 6px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); padding: 5px 12px; font: inherit; font-size: 12.5px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+  .seg button:hover { color: var(--fg); }
+  .seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); font-weight: 600; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .relogio { display: grid; justify-items: center; gap: 2px; padding: 4px 0; }
+  .relogio time { font-size: 56px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .relogio span { font-size: 14px; color: var(--muted); }
+  .rel-l { display: flex; align-items: center; gap: 14px; }
+  .rel-l svg.i { width: 44px; height: 44px; stroke-width: 2; color: var(--accent); }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: 12px; }
+  .tile { background: var(--panel); border-radius: var(--r-card); padding: 18px 20px; display: grid; grid-template-columns: auto 1fr auto; gap: 4px 14px; align-items: center; box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--cor) 55%, transparent); }
+  .tile.envio { --cor: #8b7cf6; }
+  .tile.pend { --cor: var(--warn); } .tile.aguarda { --cor: var(--info); } .tile.colet { --cor: var(--ok); }
+  .tile .ico { grid-row: 1 / 3; width: 56px; height: 56px; color: var(--cor); background: color-mix(in srgb, var(--cor) 16%, transparent); }
+  .tile .ico svg.i { width: 26px; height: 26px; }
+  .tile .lbl { font-size: 14px; font-weight: 500; }
+  .tile .num { grid-row: 2; grid-column: 2; font-size: 40px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; }
+  .tile .lado { grid-row: 1 / 3; grid-column: 3; text-align: right; font-size: 12px; color: var(--muted); line-height: 1.3; }
+  .tile .lado b { display: block; font-size: 20px; color: var(--fg); font-weight: 600; }
+  .tile .atr { grid-column: 2 / 4; font-size: 12.5px; color: var(--muted); }
+  .tile .atr .bad { color: var(--risk); font-weight: 600; }
+  .principal { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .card { background: var(--panel); border-radius: var(--r-card); padding: 20px; display: grid; gap: 14px; min-width: 0; align-content: start; }
+  .card > header { display: grid; gap: 4px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; display: inline-block; }
+  .d-pend { background: var(--warn); } .d-aguarda { background: var(--info); } .d-colet { background: var(--ok); }
+  .legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .canais { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(270px, 1fr); gap: 12px; overflow-x: auto; padding-bottom: 4px; }
+  .canal { background: var(--panel); border-radius: var(--r-card); padding: 20px; display: grid; gap: 14px; align-content: start; min-width: 0; border-top: 4px solid var(--cc, var(--c-outros)); }
+  .canal-top { display: flex; align-items: center; gap: 10px; margin: -20px -20px 0; padding: 18px 20px; border-radius: 16px 16px 0 0; background: linear-gradient(135deg, color-mix(in srgb, var(--cc) 30%, transparent), color-mix(in srgb, var(--cc) 6%, transparent)); }
+  .logo { flex: none; width: 58px; height: 58px; padding: 6px; border-radius: 50%; background: #fff; display: grid; place-items: center; overflow: hidden; box-shadow: 0 0 0 2px color-mix(in srgb, var(--cc, var(--line)) 60%, transparent); color: #111; font-weight: 700; }
+  .logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .logo, .logo.p { aspect-ratio: 1 / 1; justify-self: start; align-self: center; }
+  .logo.p { width: 34px; min-width: 34px; max-width: 34px; height: 34px; padding: 4px; box-shadow: none; font-size: 12px; }
+  .logo.m { width: 20px; min-width: 20px; max-width: 20px; height: 20px; padding: 2px; box-shadow: none; font-size: 10px; }
+  .logo:has(img[alt="Temu"]), .logo:has(img[alt="Nuvemshop"]) { padding: 0; }
+  .logo img[alt="Temu"] { object-fit: cover; transform: scale(1.12); }
+  .tudo { display: inline-flex; align-items: center; gap: 6px; padding: 3px 11px; border-radius: 999px; font-size: 12px; font-weight: 600; background: color-mix(in srgb, var(--ok) 18%, transparent); color: var(--ok); }
+  .canal.ok { box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--ok) 55%, transparent); }
+  .canal-nome { font-size: 20px; font-weight: 600; line-height: 1.15; flex: 1; min-width: 0; }
+  .canal-nome small { display: block; margin-top: 2px; font-size: 11.5px; font-weight: 400; color: var(--muted); }
+  .canal-tot { text-align: center; background: var(--panel-2); border-radius: 12px; padding: 4px 10px; font-size: 11px; color: var(--muted); line-height: 1.15; }
+  .canal-tot b { display: block; font-size: 24px; color: var(--fg); font-weight: 600; }
+  .etapa { background: var(--panel-2); border-radius: 16px; padding: 16px 16px; display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "ic rot pct" "ic val val" "tr tr tr"; gap: 3px 10px; }
+  .etapa .ic { grid-area: ic; width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; align-self: center; color: var(--cor); background: color-mix(in srgb, var(--cor) 16%, transparent); }
+  .etapa .ic svg.i { width: 16px; height: 16px; }
+  .etapa .rot { grid-area: rot; font-size: 13.5px; color: var(--muted); align-self: end; }
+  .etapa .pct { grid-area: pct; font-size: 12px; color: var(--muted); align-self: end; }
+  .etapa .val { grid-area: val; font-size: 38px; font-weight: 600; line-height: 1.05; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
+  .etapa .val.zero { color: var(--calm); font-weight: 500; }
+  .etapa .trilho { grid-area: tr; height: 6px; border-radius: 999px; background: var(--panel); overflow: hidden; margin-top: 4px; }
+  .etapa .trilho i { display: block; height: 100%; border-radius: 999px; background: var(--cor); }
+  .etapa.envio { --cor: #8b7cf6; }
+  .etapa.pend { --cor: var(--warn); } .etapa.aguarda { --cor: var(--info); } .etapa.colet { --cor: var(--ok); }
+  .tag { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 600; white-space: nowrap; background: var(--risk-soft); color: var(--risk); }
+  .baixo { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-items: start; }
+  .rows { display: grid; gap: 10px; }
+  .cal { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
+  .cal-h { font-size: 11.5px; color: var(--muted); text-align: center; padding-bottom: 2px; }
+  .dia { background: var(--panel-2); border-radius: 12px; padding: 7px 8px; min-height: 96px; display: grid; align-content: start; gap: 4px; min-width: 0; }
+  .dia .dn { font-size: 11.5px; color: var(--muted); text-align: center; }
+  .dia .dt { font-size: 22px; font-weight: 600; line-height: 1.1; letter-spacing: -0.02em; text-align: center; }
+  .dia.hoje { box-shadow: inset 0 0 0 2px var(--accent); }
+  .dia.hoje .dn { color: var(--fg); font-weight: 600; }
+  .dia.atraso { background: color-mix(in srgb, var(--risk) 16%, var(--panel-2)); }
+  .dia.atraso .dt { color: var(--risk); }
+  .dia.vazio .dt { color: var(--calm); font-weight: 500; }
+  .dia.pass:not(.atraso) { opacity: .5; }
+  .dc { display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; gap: 6px; align-items: center; }
+  .dc-b { height: 7px; border-radius: 999px; background: var(--panel); overflow: hidden; }
+  .dc-b i { display: block; height: 100%; border-radius: 999px; }
+  .dc-n { font-size: 12px; font-weight: 600; min-width: 22px; text-align: right; }
+  .folga.dia, .folga.dia.pass:not(.atraso) { background: transparent; box-shadow: inset 0 0 0 1px var(--line); opacity: .55; }
+  .folga.dia .dn { color: var(--calm); }
+  .sx { font-size: 12px; color: var(--calm); margin-top: 6px; line-height: 1.3; text-align: center; }
+  .dia.feito.pass:not(.atraso) { opacity: 1; }
+  .dia.feito { background: color-mix(in srgb, var(--ok) 12%, var(--panel-2)); opacity: 1; }
+  .dia.feito .dn { color: var(--ok); }
+  .ck { display: flex; align-items: center; justify-content: center; gap: 6px; color: var(--ok); font-size: 12.5px; font-weight: 600; margin-top: 6px; }
+  .ck svg.i { width: 22px; height: 22px; stroke-width: 2; }
+  .cal-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .chip { display: inline-flex; gap: 6px; align-items: center; padding: 4px 11px; border-radius: 999px; background: var(--panel-2); font-size: 12.5px; }
+  .chip.bad { background: var(--risk-soft); color: var(--risk); font-weight: 600; }
+  .rola { overflow-x: auto; }
+  /* grade de corte: uma linha por canal, colunas Seg a Dom + coleta de hoje; tudo centrado e do mesmo tamanho */
+  .cg { display: grid; grid-template-columns: 170px repeat(7, minmax(108px, 1fr)) 150px; grid-template-rows: auto; grid-auto-rows: 1fr; gap: 6px; min-width: 1100px; }
+  .cg-th { font-size: 12px; font-weight: 600; color: var(--muted); padding: 2px 8px; text-align: center; }
+  .cg-th.hoje { color: var(--fg); }
+  .cg-canal { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; font-size: 15px; border-left: 4px solid var(--cc); background: linear-gradient(90deg, color-mix(in srgb, var(--cc) 28%, transparent), color-mix(in srgb, var(--cc) 5%, transparent)); }
+  .cg-d { background: var(--panel-2); border-radius: 12px; padding: 8px; display: grid; gap: 6px; min-width: 0; justify-items: center; align-content: center; text-align: center; min-height: 112px; height: 100%; }
+  .cg-d.hoje { box-shadow: inset 0 0 0 2px var(--accent); }
+  .cg-r { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; width: 100%; }
+  .cg-r + .cg-r { padding-top: 6px; border-top: 1px dashed var(--line); }
+  .cg-r .mod { display: inline-flex; align-items: center; justify-content: center; gap: 4px; font-size: 11px; font-weight: 600; color: #8b7cf6; text-transform: uppercase; letter-spacing: .03em; }
+  .cg-r .mod svg.i { width: 15px; height: 15px; }
+  .cg-r .hm { background: var(--panel); border-radius: 999px; padding: 1px 9px; font-weight: 600; font-size: 12.5px; white-space: nowrap; width: 128px; min-width: 128px; text-align: center; }
+  .cg-r .hm.envio { background: color-mix(in srgb, var(--info) 18%, transparent); color: var(--info); }
+  .cg .nt { font-size: 12px; color: var(--muted); line-height: 1.3; text-align: center; max-width: 128px; }
+  .cg .nt.aviso { color: var(--risk); font-weight: 600; }
+  .cg-o { background: var(--panel-2); border-radius: 12px; padding: 8px 10px; display: grid; gap: 4px; border: 1px dashed var(--line); justify-items: center; align-content: center; text-align: center; min-height: 112px; height: 100%; }
+  .cg-o b { font-size: 17px; white-space: nowrap; }
+  /* alertas por horário: laranja falta 1 h ou menos, vermelho 30 min ou menos */
+  .canal.alerta-atr { box-shadow: inset 0 0 0 3px var(--risk); background: color-mix(in srgb, var(--risk) 10%, var(--panel)); }
+  .canal.alerta-pend { box-shadow: inset 0 0 0 3px var(--warn); background: color-mix(in srgb, var(--warn) 9%, var(--panel)); }
+  .etapa.atr { background: color-mix(in srgb, var(--risk) 18%, var(--panel-2)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--risk) 50%, transparent); }
+  .etapa.atr .val { color: var(--risk); }
+  .etapa.quente { background: color-mix(in srgb, var(--warn) 15%, var(--panel-2)); }
+  .tile.atr { background: color-mix(in srgb, var(--risk) 12%, var(--panel)); box-shadow: inset 0 0 0 3px var(--risk); }
+  .tile.quente { background: color-mix(in srgb, var(--warn) 10%, var(--panel)); box-shadow: inset 0 0 0 3px var(--warn); }
+  .alerta-leg { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; color: var(--muted); }
+  .alerta-leg span { display: inline-flex; align-items: center; gap: 6px; }
+  .alerta-leg i { width: 14px; height: 14px; border-radius: 4px; display: inline-block; }
+  .limite { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: 13px; color: var(--muted); }
+  .limite b { color: var(--fg); font-size: 15px; }
+  .limite .tag.calmo { background: var(--panel-2); color: var(--muted); }
+  .limite .tag.lv { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+  /* dados parados: relógio vermelho e aviso para chamar o responsável */
+  .relogio.emdia .rel-l svg.i { color: var(--ok); } /* dados em dia: ícone do relógio verde */
+  .relogio.parado time, .relogio.parado .rel-l svg.i, .relogio.parado #relogioData { color: var(--risk); }
+  /* Modo TV (tela deitada >= 1000 px, ou ?tv): tudo numa tela só, sem rolagem, escala para caber,
+     e três telas que se revezam: canais, vence quando, corte e coleta. ?tv=0 desliga. */
+  .tv-vista { display: none; }
+  html.tv, html.tv body { overflow: hidden; height: 100%; }
+  html.tv.quieto, html.tv.quieto * { cursor: none !important; }
+  html.tv .exp { max-width: none; margin: 0; padding: 0 20px 14px; gap: 14px; transform-origin: 0 0; box-sizing: border-box; }
+  html.tv .exp > header { grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px !important; border-bottom: 1px solid var(--line); }
+  html.tv .topo { border: 0; padding: 10px 0; }
+  html.tv .seg, html.tv .principal .muted, html.tv .principal .legend { display: none; }
+  html.tv .tv-vista { display: flex; justify-self: end; gap: 6px; }
+  html.tv .tv-vista span { padding: 5px 14px; border-radius: 999px; font-size: 13px; color: var(--muted); background: var(--panel-2); }
+  html.tv .tv-vista span.on { background: var(--accent); color: var(--accent-fg); font-weight: 600; }
+  html.tv .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  html.tv .canais { grid-auto-columns: minmax(0, 1fr); overflow: hidden; }
+  html.tv .canal-nome { font-size: 18px; }
+  html.tv[data-vista="canais"] .baixo, html.tv[data-vista="canais"] #corte,
+  html.tv[data-vista="prazos"] .tiles, html.tv[data-vista="prazos"] .principal, html.tv[data-vista="prazos"] #corte,
+  html.tv[data-vista="corte"] .tiles, html.tv[data-vista="corte"] .principal, html.tv[data-vista="corte"] .baixo { display: none; }
+  .aviso-parado { margin-top: 8px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 999px; background: var(--risk-soft); color: var(--risk); font-weight: 600; font-size: 16px; box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--risk) 55%, transparent); }
+</style>
+<script>
+  (function () { var t = 'dark'; try { t = localStorage.getItem('expedicao-gip-tema') || 'dark'; } catch (e) {}
+    if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; else delete document.documentElement.dataset.theme; })();
+</script>
+</head>
+<body>
+<div class="exp">
+  <header style="display:grid;gap:16px">
+    <div class="topo">
+      <div class="marca">
+        <span class="selo"><svg class="i" data-i="truck" viewBox="0 0 24 24" aria-hidden="true"></svg></span>
+        <div><h1>Painel de Expedição</h1><small>Pedidos por canal · dados direto das APIs dos canais</small></div>
+      </div>
+      <div class="seg" role="group" aria-label="Tema da página">
+        <button type="button" data-tema="auto">Automático</button><button type="button" data-tema="light">Claro</button><button type="button" data-tema="dark">Escuro</button>
+      </div>
+    </div>
+    <div class="relogio" aria-label="Hora atual"><div class="rel-l"><svg class="i" data-i="clock" viewBox="0 0 24 24" aria-hidden="true"></svg><time id="relogio">--:--:--</time></div><span id="relogioData"></span><div class="aviso-parado" id="avisoParado" role="alert" hidden></div></div>
+    <div class="tv-vista" id="tvVista" aria-hidden="true"><span data-v="canais">Canais</span><span data-v="prazos">Vence quando</span></div>
+  </header>
+
+  <section class="tiles" id="etapas" aria-label="Pedidos por etapa">
+    <div class="tile pend">
+      <span class="ico"><svg class="i" data-i="printer" viewBox="0 0 24 24" aria-hidden="true"></svg></span>
+      <span class="lbl">Pendente de impressão</span>
+      <span class="num" data-source="totais" data-field="pendente">—</span>
+      <span class="lado"><b data-source="totais" data-field="pct_pendente">—</b>do total</span>
+      <span class="atr"><b class="bad" data-source="totais" data-field="pendente_atrasado">—</b> atrasados</span>
+    </div>
+    <div class="tile aguarda">
+      <span class="ico"><svg class="i" data-i="package" viewBox="0 0 24 24" aria-hidden="true"></svg></span>
+      <span class="lbl">Aguardando coleta</span>
+      <span class="num" data-source="totais" data-field="aguardando">—</span>
+      <span class="lado"><b data-source="totais" data-field="pct_aguardando">—</b>do total</span>
+      <span class="atr"><b class="bad" data-source="totais" data-field="aguardando_atrasado">—</b> atrasados</span>
+    </div>
+    <div class="tile envio">
+      <span class="ico"><svg class="i" data-i="moto" viewBox="0 0 24 24" aria-hidden="true"></svg></span>
+      <span class="lbl">Aguardando envio</span>
+      <span class="num" data-source="totais" data-field="aguardando_envio">—</span>
+      <span class="lado"><b data-source="totais" data-field="pct_envio">—</b>do total</span>
+      <span class="atr">Entrega direta (motoboy): Flex, Shopee e Nuvemshop</span>
+    </div>
+    <div class="tile colet">
+      <span class="ico"><svg class="i" data-i="check" viewBox="0 0 24 24" aria-hidden="true"></svg></span>
+      <span class="lbl">Coletado hoje</span>
+      <span class="num" data-source="totais" data-field="coletado">—</span>
+      <span class="lado"><b data-source="totais" data-field="pct_coletado">—</b>do total</span>
+      <span class="atr">Posição de <b data-source="canais" data-field="atualizado">—</b></span>
+    </div>
+  </section>
+
+  <section class="principal">
+    <div style="display:grid;gap:12px">
+      <p class="muted">Pedidos que precisam ser despachados hoje: prazo de hoje ou já vencido. O que vence nos próximos dias fica no calendário. "Coletado" é só o de hoje.</p>
+      <div class="legend">
+        <span><i class="dot d-pend"></i>Pendente de impressão</span>
+        <span><i class="dot d-aguarda"></i>Aguardando coleta</span>
+        <span><i class="dot" style="background:#8b7cf6"></i>Aguardando envio (entrega direta)</span>
+        <span><i class="dot d-colet"></i>Coletado hoje</span>
+      </div>
+      <div class="alerta-leg"><span><i style="box-shadow: inset 0 0 0 3px var(--risk)"></i>Vermelho: faltam 30 min ou menos para fechar o horário de envio (ou já fechou) e ainda há pedido para imprimir, aguardando coleta ou para o motoboy</span><span><i style="box-shadow: inset 0 0 0 3px var(--warn)"></i>Laranja: falta 1 hora ou menos</span></div>
+      <div class="canais" id="funil"></div>
+    </div>
+  </section>
+
+  <section class="baixo">
+    <section class="card" id="vence">
+      <header><h2><span class="ico"><svg class="i" data-i="clock" viewBox="0 0 24 24" aria-hidden="true"></svg></span>Vence quando</h2><p class="muted">Cada dia mostra quantos pedidos abertos vencem nele. Vermelho já passou do prazo; o contorno amarelo é hoje.</p></header>
+      <div class="rows" id="prazos"></div>
+    </section>
+  </section>
+
+  <section class="card" id="corte">
+    <header>
+      <h2><span class="ico"><svg class="i" data-i="clock" viewBox="0 0 24 24" aria-hidden="true"></svg></span>Corte e coleta</h2>
+      <p class="muted">Corte é até que hora o pedido que cai sai no mesmo dia. "Envio" é o horário do ponto de coleta de cada canal, quando levar os pacotes; no Flex e no motoboy da Nuvemshop, a faixa de entrega. Mercado Livre: coleta e Flex pela API e pelo aviso do ML por e-mail. "Coleta de hoje" nos outros canais é a faixa de horas em que as coletas de hoje aconteceram, lida do próprio canal.</p>
+    </header>
+    <div id="cortes"></div>
+  </section>
+</div>
+
+<script>
+// Leitor de dados no lugar do runtime do claude.ai: lê data/*.json, guarda a última leitura boa,
+// busca de novo a cada minuto e só redesenha quando algo mudou. Mesma interface (dash.calc/data/onData).
+window.dash = (function () {
+  var ARQ = { canais: 'data/expedicao-canais.json', prazos: 'data/expedicao-prazos.json', corte: 'data/expedicao-corte.json', horas: 'data/expedicao-horas.json' };
+  var dados = {}, textos = {}, calcs = {}, ouvintes = [], assinatura = '';
+  function data(id) {
+    if (calcs[id]) {
+      var ins = calcs[id].inputs.map(function (i) { return dados[i]; });
+      if (ins.some(function (x) { return !x || x.status !== 'ok'; })) return { status: 'loading', data: [] };
+      try { return { status: 'ok', data: calcs[id].fn.apply(null, ins.map(function (x) { return x.data; })) }; } catch (e) { return { status: 'error', data: [] }; }
+    }
+    return dados[id] || { status: 'loading', data: [] };
+  }
+  function avisa() { ouvintes.forEach(function (f) { try { f(); } catch (e) { console.error(e); } }); }
+  async function carrega() {
+    await Promise.all(Object.keys(ARQ).map(async function (id) {
+      try {
+        var r = await fetch(ARQ[id] + '?t=' + Date.now(), { cache: 'no-store' });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        var t = await r.text();
+        dados[id] = { status: 'ok', data: JSON.parse(t) }; textos[id] = t;
+      } catch (e) {
+        // sem rede ou arquivo quebrado: fica a última leitura boa (o aviso de dados parados cuida do resto)
+        if (!dados[id]) dados[id] = { status: 'error', data: [] };
+      }
+    }));
+    var nova = Object.keys(ARQ).map(function (id) { return textos[id] || ''; }).join('|');
+    if (nova !== assinatura) { assinatura = nova; avisa(); }
+  }
+  setTimeout(carrega, 0);
+  setInterval(carrega, 60000);
+  // a página inteira recarrega a cada 3 h, para pegar mudanças de layout sem ninguém mexer na TV
+  setTimeout(function () { location.reload(); }, 3 * 3600000);
+  // e também logo que a própria página mudar no site (confere a cada 2 min): ajuste publicado chega à TV sem esperar 3 h
+  var paginaAtual = null;
+  setTimeout(confere, 5000);
+  setInterval(confere, 120000);
+  async function confere() {
+    try {
+      var r = await fetch(location.pathname + '?p=' + Date.now(), { cache: 'no-store' });
+      if (!r.ok) return;
+      var t = await r.text();
+      if (paginaAtual === null) paginaAtual = t; else if (t !== paginaAtual && /<\/html>\s*$/.test(t)) location.reload();
+    } catch (e) {}
+  }
+  return {
+    calc: function (id, o) { calcs[id] = o; },
+    data: data,
+    onData: function (f) { ouvintes.push(f); if (Object.keys(dados).length) f(); }
+  };
+})();
+</script>
+<script>
+(function () {
+  var fmt = new Intl.NumberFormat('pt-BR').format;
+  var pf = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  var pct = function (n, t) { return t ? pf.format(n / t * 100) + '%' : '—'; };
+  var num = function (v) { return v === null || v === undefined || v === '' ? null : Number(v); };
+  var COR = { 'Shopee': 'var(--c-shopee)', 'Tiktok': 'var(--c-tiktok)', 'Mercado Livre': 'var(--c-ml)', 'Shein': 'var(--c-shein)', 'Temu': '#fb7701', 'Nuvemshop': '#2c3357' };
+  var corDe = function (n) { return COR[n] || 'var(--c-outros)'; };
+  var ICONS = {
+    truck: '<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>',
+    printer: '<path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/>',
+    package: '<path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>',
+    check: '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+    clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+    moto: '<circle cx="5.5" cy="17.5" r="3"/><circle cx="18.5" cy="17.5" r="3"/><path d="M8.5 17.5h6l2-5h-5l-2-3H7"/><path d="M14.5 6h2.5l1.5 6.5"/><rect x="2" y="8" width="5" height="4" rx="1"/>'
+  };
+  document.querySelectorAll('svg[data-i]').forEach(function (s) { s.innerHTML = ICONS[s.getAttribute('data-i')] || ''; });
+  function ico(tipo) { var s = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); s.setAttribute('class', 'i'); s.setAttribute('viewBox', '0 0 24 24'); s.innerHTML = ICONS[tipo]; return s; }
+
+  function marcaTema() {
+    var t = document.documentElement.dataset.theme || 'auto';
+    document.querySelectorAll('[data-tema]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-tema') === t ? 'true' : 'false'); });
+  }
+  document.querySelectorAll('[data-tema]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = b.getAttribute('data-tema');
+      if (t === 'auto') delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = t;
+      try { localStorage.setItem('expedicao-gip-tema', t); } catch (e) {}
+      marcaTema();
+    });
+  });
+  marcaTema();
+
+  var ultimaAtualizacao = null; // { t: ms, txt: 'HH:MM (dd/mm)' } da última atualização dos dados
+
+  dash.calc('totais', {
+    inputs: ['canais'],
+    fn: function (canais) {
+      var soma = function (campo) { return canais.reduce(function (s, r) { return s + (Number(r[campo]) || 0); }, 0); };
+      var p = soma('pendente'), a = soma('aguardando'), e = soma('envio'), c = soma('coletado'), t = p + a + e + c;
+      return [{
+        pendente: p, pendente_atrasado: soma('pendente_atrasado'),
+        aguardando: a, aguardando_atrasado: soma('aguardando_atrasado'),
+        aguardando_envio: e, envio_atrasado: soma('envio_atrasado'), pct_envio: pct(e, t),
+        coletado: c, total: t,
+        pct_pendente: pct(p, t), pct_aguardando: pct(a, t), pct_coletado: pct(c, t)
+      }];
+    }
+  });
+
+  function mk(tag, cls, txt) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (txt !== undefined) e.textContent = txt;
+    return e;
+  }
+  function limpaMarcas() {
+    document.querySelectorAll('#etapas [data-source]').forEach(function (e) { e.textContent = '—'; });
+  }
+  var LOGOS = {
+    'Shopee': 'logos/shopee.png',
+    'Tiktok': 'logos/tiktok.png',
+    'Mercado Livre': 'logos/mercadolivre.png',
+    'Shein': 'logos/shein-logo.png',
+    'Temu': 'logos/temu.png',
+    'Nuvemshop': 'logos/nuvemshop.png'
+  };
+  function logo(nome, pequeno) {
+    var l = mk('span', 'logo' + (pequeno === 'm' ? ' m' : (pequeno ? ' p' : '')));
+    if (LOGOS[nome]) { var im = document.createElement('img'); im.alt = nome; im.src = LOGOS[nome]; l.appendChild(im); }
+    else { l.textContent = String(nome).charAt(0); l.style.background = corDe(nome); l.style.color = '#fff'; }
+    return l;
+  }
+
+  function etapa(cls, tipo, rotulo, n, total, atras, urg) {
+    var b = mk('div', 'etapa ' + cls + (urg ? ' ' + urg : ''));
+    var ic = mk('span', 'ic'); ic.appendChild(ico(tipo));
+    var val = mk('div', 'val' + (n ? '' : ' zero'));
+    val.appendChild(mk('span', '', fmt(n)));
+    if (atras > 0) val.appendChild(mk('span', 'tag', fmt(atras) + ' atrasados'));
+    var tr = mk('div', 'trilho'); var i = mk('i'); i.style.width = total ? (n / total * 100) + '%' : '0%'; tr.appendChild(i);
+    b.appendChild(ic); b.appendChild(mk('div', 'rot', rotulo)); b.appendChild(mk('div', 'pct', pct(n, total))); b.appendChild(val); b.appendChild(tr);
+    return b;
+  }
+
+  // Calendário de prazos por canal: 3 semanas. Cada dia lista os canais com pedidos que vencem nele; dia já chegado e sem nada aberto ganha o check.
+  // Feriados nacionais (sem expediente). Feriado municipal não entra: nesses dias se trabalha normalmente.
+  var HOLS = {
+    '2026-01-01': 'Confraternização', '2026-04-03': 'Sexta-feira Santa', '2026-04-21': 'Tiradentes', '2026-05-01': 'Trabalho', '2026-09-07': 'Independência',
+    '2026-10-12': 'N. Sra. Aparecida', '2026-11-02': 'Finados', '2026-11-15': 'Proclamação da República', '2026-11-20': 'Consciência Negra', '2026-12-25': 'Natal',
+    '2027-01-01': 'Confraternização', '2027-03-26': 'Sexta-feira Santa', '2027-04-21': 'Tiradentes', '2027-05-01': 'Trabalho', '2027-09-07': 'Independência',
+    '2027-10-12': 'N. Sra. Aparecida', '2027-11-02': 'Finados', '2027-11-15': 'Proclamação da República', '2027-11-20': 'Consciência Negra', '2027-12-25': 'Natal'
+  };
+  function calendarioCanais(box, rows) {
+    box.replaceChildren();
+    var hojeK = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Sao_Paulo' }).format(new Date());
+    var utc = function (k) { return Date.parse(k + 'T12:00:00Z'); };
+    var key = function (ms) { return new Date(ms).toISOString().slice(0, 10); };
+    var ini = utc(hojeK) - ((new Date(utc(hojeK)).getUTCDay() + 6) % 7) * 86400000;
+    var fim = ini + 21 * 86400000;
+    var dias = {}, semPrazo = 0, antes = 0, depois = 0;
+    rows.forEach(function (r) {
+      var tot = (Number(r.a_imprimir) || 0) + (Number(r.aguardando_coleta) || 0) + (Number(r.aguardando_envio) || 0);
+      if (!r.data) { semPrazo += tot; return; }
+      var t = utc(r.data);
+      if (t < ini) antes += tot; else if (t >= fim) depois += tot; else (dias[r.data] = dias[r.data] || []).push({ canal: r.canal, tot: tot, ap: Number(r.a_imprimir) || 0, ag: Number(r.aguardando_coleta) || 0, ev: Number(r.aguardando_envio) || 0, atr: !!r.atrasado });
+    });
+    var cal = mk('div', 'cal');
+    ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'].forEach(function (n) { cal.appendChild(mk('div', 'cal-h', n)); });
+    var meses = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+    for (var i = 0; i < 21; i++) {
+      var t = ini + i * 86400000, k = key(t), d = new Date(t);
+      var lista = (dias[k] || []).filter(function (x) { return x.tot > 0; }).sort(function (a, b) { return b.tot - a.tot; });
+      var total = lista.reduce(function (s, x) { return s + x.tot; }, 0);
+      var atrasado = lista.some(function (x) { return x.atr; });
+      var feriado = HOLS[k];
+      var domingo = d.getUTCDay() === 0 || !!feriado;
+      var concluido = !total && k <= hojeK && !domingo;
+      var cls = (domingo && !total ? 'folga ' : '') + 'dia' + (k === hojeK ? ' hoje' : '') + (k < hojeK ? ' pass' : '') + (atrasado ? ' atraso' : '') + (total ? '' : ' vazio') + (concluido ? ' feito' : '');
+      var cel = mk('div', cls);
+      cel.appendChild(mk('div', 'dn', d.getUTCDate() + ((i === 0 || d.getUTCDate() === 1) ? ' ' + meses[d.getUTCMonth()] : '') + (k === hojeK ? ' · hoje' : '')));
+      if (total) {
+        cel.appendChild(mk('div', 'dt', fmt(total)));
+        var max = lista[0].tot;
+        lista.forEach(function (x) {
+          var ln = mk('div', 'dc');
+          ln.title = x.canal + ': ' + fmt(x.ap) + ' a imprimir, ' + fmt(x.ag) + ' aguardando coleta' + (x.ev ? ', ' + fmt(x.ev) + ' aguardando envio' : '');
+          ln.appendChild(logo(x.canal, 'm'));
+          var tr = mk('div', 'dc-b'); var f = mk('i'); f.style.background = corDe(x.canal); f.style.width = (x.tot / max * 100) + '%'; tr.appendChild(f);
+          ln.appendChild(tr); ln.appendChild(mk('b', 'dc-n', fmt(x.tot)));
+          cel.appendChild(ln);
+        });
+      } else if (concluido) {
+        var ck = mk('div', 'ck'); ck.appendChild(ico('check')); ck.appendChild(mk('span', '', 'Concluído'));
+        cel.appendChild(ck);
+      } else if (domingo) cel.appendChild(mk('div', 'sx', feriado ? 'Feriado · ' + feriado : 'Sem expediente'));
+      else cel.appendChild(mk('div', 'dt', '—'));
+      cal.appendChild(cel);
+    }
+    box.appendChild(cal);
+    var ch = mk('div', 'cal-chips');
+    if (antes) ch.appendChild(mk('span', 'chip bad', 'Atrasados de antes desta semana: ' + fmt(antes)));
+    if (depois) ch.appendChild(mk('span', 'chip', 'Depois de 3 semanas: ' + fmt(depois)));
+    if (semPrazo) ch.appendChild(mk('span', 'chip', 'Sem prazo definido: ' + fmt(semPrazo)));
+    if (ch.childNodes.length) box.appendChild(ch);
+  }
+
+  // Corte e coleta na horizontal (tela de TV): uma linha por canal, uma coluna por dia da semana, e a coleta de hoje no fim.
+  function corteGrade(box, rows) {
+    box.replaceChildren();
+    var hoje = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 }[new Intl.DateTimeFormat('en-US', { timeZone: 'America/Sao_Paulo', weekday: 'short' }).format(new Date())];
+    var DIAS = [[1, 'Seg'], [2, 'Ter'], [3, 'Qua'], [4, 'Qui'], [5, 'Sex'], [6, 'Sáb'], [0, 'Dom']];
+    var g = mk('div', 'cg');
+    g.appendChild(mk('div', 'cg-th', ''));
+    DIAS.forEach(function (d) { g.appendChild(mk('div', 'cg-th' + (d[0] === hoje ? ' hoje' : ''), d[1] + (d[0] === hoje ? ' · hoje' : ''))); });
+    g.appendChild(mk('div', 'cg-th', 'Coleta de hoje'));
+    var ordem = [];
+    rows.forEach(function (r) { if (ordem.indexOf(r.canal) < 0) ordem.push(r.canal); });
+    ordem.forEach(function (nome) {
+      var meus = rows.filter(function (r) { return r.canal === nome; });
+      var cab = mk('div', 'cg-canal'); cab.style.setProperty('--cc', corDe(nome));
+      cab.appendChild(logo(nome, true)); cab.appendChild(mk('b', '', nome));
+      g.appendChild(cab);
+      DIAS.forEach(function (d) {
+        var cel = mk('div', 'cg-d' + (d[0] === hoje ? ' hoje' : ''));
+        var regras = meus.filter(function (r) { return r.dias && r.dias !== 'obs' && r.dias.split(',').indexOf(String(d[0])) >= 0; });
+        if (!regras.length) cel.appendChild(mk('span', 'nt', '—'));
+        // Um bloco por modalidade (Padrão primeiro), sempre na mesma ordem: corte, coleta/envio, nota.
+        var grupos = [];
+        regras.forEach(function (r) {
+          var gg = grupos.filter(function (x) { return x.k === r.modalidade; })[0];
+          if (!gg) { gg = { k: r.modalidade, rs: [] }; grupos.push(gg); }
+          gg.rs.push(r);
+        });
+        grupos.sort(function (a, b) { return (a.k === 'Padrão' ? 0 : 1) - (b.k === 'Padrão' ? 0 : 1); });
+        grupos.forEach(function (gg) {
+          var direta = gg.k !== 'Padrão';
+          var l = mk('div', 'cg-r' + (direta ? ' direta' : ''));
+          if (direta) { var m = mk('span', 'mod'); m.appendChild(ico('moto')); m.appendChild(document.createTextNode(gg.k)); l.appendChild(m); }
+          gg.rs.forEach(function (r) { if (r.corte) l.appendChild(mk('span', 'hm', 'Corte ' + r.corte)); });
+          gg.rs.forEach(function (r) { if (r.coleta) l.appendChild(mk('span', 'hm' + (r.rotulo ? ' envio' : ''), (r.rotulo ? r.rotulo + ' ' : (r.nota === 'Entrega ao cliente' ? 'Envio ' : 'Coleta ')) + r.coleta)); });
+          gg.rs.forEach(function (r) { if (r.nota && r.nota !== 'Entrega ao cliente') l.appendChild(mk('span', 'nt' + (r.aviso ? ' aviso' : ''), (r.aviso ? '⚠ ' : '') + r.nota)); });
+          cel.appendChild(l);
+        });
+        g.appendChild(cel);
+      });
+      var obs = meus.filter(function (r) { return r.dias === 'obs'; })[0];
+      var o = mk('div', 'cg-o');
+      o.appendChild(mk('b', '', obs && obs.coleta ? obs.coleta : '—'));
+      if (obs) o.appendChild(mk('span', 'nt', obs.nota));
+      g.appendChild(o);
+    });
+    var w = mk('div', 'rola'); w.appendChild(g); box.appendChild(w);
+  }
+
+  function desenha() {
+    var canais = dash.data('canais'), prazos = dash.data('prazos'), totais = dash.data('totais');
+    var funil = document.getElementById('funil'), vence = document.getElementById('prazos');
+    var cortes = document.getElementById('cortes');
+    funil.replaceChildren(); vence.replaceChildren(); cortes.replaceChildren();
+
+    if (canais.status !== 'ok' || totais.status !== 'ok' || !canais.data.length) {
+      limpaMarcas();
+      return;
+    }
+
+    var CD = canais.data;
+    var t = totais.data[0];
+    document.querySelectorAll('[data-source="totais"][data-field]').forEach(function (e) {
+      var v = t[e.getAttribute('data-field')];
+      e.textContent = typeof v === 'number' ? fmt(v) : v;
+    });
+    document.querySelectorAll('[data-source="canais"][data-field="atualizado"]').forEach(function (e) {
+      e.textContent = canais.data[0].atualizado;
+    });
+    // "dd/mm HH:MM" (hora de São Paulo) -> momento, para o aviso de dados parados
+    var mAt = /^(\d{2})\/(\d{2}) (\d{2}):(\d{2})/.exec(canais.data[0].atualizado || '');
+    if (mAt) {
+      var anoAt = new Date().getFullYear();
+      var tAt = Date.parse(anoAt + '-' + mAt[2] + '-' + mAt[1] + 'T' + mAt[3] + ':' + mAt[4] + ':00-03:00');
+      if (tAt > Date.now() + 86400000) tAt = Date.parse((anoAt - 1) + '-' + mAt[2] + '-' + mAt[1] + 'T' + mAt[3] + ':' + mAt[4] + ':00-03:00');
+      ultimaAtualizacao = { t: tAt, txt: mAt[3] + ':' + mAt[4] + ' (' + mAt[1] + '/' + mAt[2] + ')' };
+      tique();
+    }
+
+    var tl = function (sel, atr, tem) { var e = document.querySelector('.tile.' + sel); if (!e) return; e.classList.toggle('atr', atr > 0); e.classList.toggle('quente', !(atr > 0) && tem > 0); };
+
+    var lista = CD.map(function (r) {
+      var pend = num(r.pendente) || 0, ag = num(r.aguardando) || 0, col = num(r.coletado) || 0, env = num(r.envio);
+      return { r: r, pend: pend, ag: ag, col: col, env: env, tot: pend + ag + (env || 0) + col };
+    }).sort(function (a, b) { return b.tot - a.tot; });
+
+    // Horário final de envio de hoje por canal (da grade de corte): fim do ponto (Envio), fim da janela de coleta (ML) ou saída do motoboy (Flex).
+    var corteD = dash.data('corte'), CR = corteD.status === 'ok' ? corteD.data : [];
+    var pz = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Sao_Paulo', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date());
+    var pg = function (k) { return pz.filter(function (x) { return x.type === k; })[0].value; };
+    var dowH = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 }[pg('weekday')];
+    var agoraMin = (Number(pg('hour')) % 24) * 60 + Number(pg('minute'));
+    var hmM = function (s) { var m = /([0-9]{1,2}):([0-9]{2})/.exec(s || ''); return m ? Number(m[1]) * 60 + Number(m[2]) : null; };
+    var mHm = function (m) { return String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0'); };
+    var durT = function (m) { var h = Math.floor(m / 60), r = m % 60; return (h ? h + 'h' : '') + (h && r ? String(r).padStart(2, '0') : (h ? '' : r + ' min')); };
+    function limitesHoje(canal) {
+      var out = { padrao: null, direta: null };
+      CR.forEach(function (r) {
+        if (r.canal !== canal || !r.coleta || !r.dias || r.dias === 'obs' || r.dias.split(',').indexOf(String(dowH)) < 0) return;
+        var p = String(r.coleta).split('–');
+        // Vale o FIM da janela: a coleta pode passar a qualquer hora dentro dela (Arthur, 2026-11-06). limite = saída do motoboy.
+        var v = r.limite ? hmM(r.limite) : hmM(p[1] || p[0]);
+        var k = r.modalidade === 'Padrão' ? 'padrao' : 'direta';
+        // Linha sem rótulo = grade de coleta no galpão (Mercado Livre).
+        if (v !== null && (out[k] === null || v < out[k])) { out[k] = v; if (k === 'padrao') out.rot = (!r.rotulo || r.rotulo === 'Coleta') ? 'Coleta até ' : 'Envio até '; }
+      });
+      if (out.direta === null) out.direta = out.padrao;
+      return out;
+    }
+    var urgPend = false, urgEnv = false, urgAg = false, warnPend = false, warnEnv = false, warnAg = false;
+    lista.forEach(function (c) {
+      var card = mk('div', 'canal');
+      var lim = limitesHoje(c.r.canal);
+      var urgP = c.pend > 0 && lim.padrao !== null && lim.padrao - agoraMin <= 30;
+      var urgD = (c.env || 0) > 0 && lim.direta !== null && lim.direta - agoraMin <= 30;
+      var warnP = !urgP && c.pend > 0 && lim.padrao !== null && lim.padrao - agoraMin <= 60;
+      var warnD = !urgD && (c.env || 0) > 0 && lim.direta !== null && lim.direta - agoraMin <= 60;
+      // Aguardando coleta também entra no alerta: pedido de hoje que ainda não saiu perto de fechar a coleta/ponto (Arthur, 2026-11-05).
+      var urgA = c.ag > 0 && lim.padrao !== null && lim.padrao - agoraMin <= 30;
+      var warnA = !urgA && c.ag > 0 && lim.padrao !== null && lim.padrao - agoraMin <= 60;
+      if (urgA) urgAg = true; if (warnA) warnAg = true;
+      if (urgP) urgPend = true; if (urgD) urgEnv = true;
+      if (warnP) warnPend = true; if (warnD) warnEnv = true;
+      card.style.setProperty('--cc', corDe(c.r.canal));
+      var top = mk('div', 'canal-top');
+      top.appendChild(logo(c.r.canal));
+      var nome = mk('div', 'canal-nome', c.r.canal);
+      nome.appendChild(mk('small', '', c.r.fonte));
+      top.appendChild(nome);
+      var tot = mk('div', 'canal-tot', 'Total');
+      tot.appendChild(mk('b', '', fmt(c.tot)));
+      top.appendChild(tot);
+      if (urgP || urgD || urgA) card.className += ' alerta-atr'; else if (warnP || warnD || warnA) card.className += ' alerta-pend';
+      if (c.tot && !c.pend && !c.ag && !c.env) { card.className += ' ok'; nome.appendChild(mk('span', 'tudo', '✓ Tudo coletado')); }
+      card.appendChild(top);
+      var limL = mk('div', 'limite');
+      var avC = CR.filter(function (r) { return r.canal === c.r.canal && r.aviso && String(r.dias).split(',').indexOf(String(dowH)) >= 0; })[0];
+      if (avC || lim.padrao === null) limL.appendChild(avC ? mk('span', 'tag', '⚠ ' + avC.nota) : mk('span', '', 'Sem horário de envio hoje'));
+      else {
+        var falta = lim.padrao - agoraMin;
+        limL.appendChild(mk('span', '', lim.rot || 'Envio até ')); limL.appendChild(mk('b', '', mHm(lim.padrao)));
+        // Sem nada aberto para essa janela não há o que alertar: o horário passar não é atraso.
+        var abertoP = c.pend + c.ag > 0;
+        limL.appendChild(mk('span', 'tag' + (!abertoP ? ' calmo' : falta <= 30 ? '' : falta <= 60 ? ' lv' : ' calmo'), falta < 0 ? (abertoP ? 'Passou do horário' : 'Horário encerrado') : 'Faltam ' + durT(falta)));
+      }
+      if (lim.direta !== null && lim.direta !== lim.padrao && c.env !== null) { limL.appendChild(mk('span', '', '· Motoboy ')); limL.appendChild(mk('b', '', mHm(lim.direta))); }
+      card.appendChild(limL);
+      card.appendChild(etapa('pend', 'printer', 'Pendente', c.pend, c.tot, num(c.r.pendente_atrasado) || 0, urgP ? 'atr' : (warnP ? 'quente' : '')));
+      card.appendChild(etapa('aguarda', 'truck', 'Aguardando coleta', c.ag, c.tot, num(c.r.aguardando_atrasado) || 0, urgA ? 'atr' : (warnA ? 'quente' : '')));
+      if (c.env !== null) card.appendChild(etapa('envio', 'moto', 'Aguardando envio', c.env, c.tot, num(c.r.envio_atrasado) || 0, urgD ? 'atr' : (warnD ? 'quente' : '')));
+      card.appendChild(etapa('colet', 'check', 'Coletado', c.col, c.tot, 0));
+      funil.appendChild(card);
+    });
+
+    tl('pend', urgPend ? 1 : 0, warnPend ? 1 : 0); tl('aguarda', urgAg ? 1 : 0, warnAg ? 1 : 0); tl('envio', urgEnv ? 1 : 0, warnEnv ? 1 : 0);
+    calendarioCanais(vence, prazos.status === 'ok' ? prazos.data : []);
+    if (corteD.status === 'ok') corteGrade(cortes, corteD.data);
+  }
+
+  // Relógio no topo (hora de São Paulo), atualiza a cada segundo.
+  var fHora = new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+  var fDia = new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', weekday: 'long', day: '2-digit', month: 'long' });
+  var PARADO_MIN = 30; // minutos sem atualização até o relógio ficar vermelho
+  function tique() {
+    var a = new Date();
+    var parado = ultimaAtualizacao && (a.getTime() - ultimaAtualizacao.t) > PARADO_MIN * 60000;
+    var rel = document.querySelector('.relogio'), av = document.getElementById('avisoParado');
+    if (rel) { rel.classList.toggle('parado', !!parado); rel.classList.toggle('emdia', !!ultimaAtualizacao && !parado); }
+    if (av) { av.hidden = !parado; if (parado) av.textContent = '⚠ Sem atualizar desde ' + ultimaAtualizacao.txt + ' · avise o responsável'; }
+    document.getElementById('relogio').textContent = fHora.format(a);
+    var d = fDia.format(a);
+    document.getElementById('relogioData').textContent = d.charAt(0).toUpperCase() + d.slice(1);
+  }
+  tique();
+  setInterval(tique, 1000);
+  // Recalcula as cores de horário a cada minuto (os dados podem não mudar, o relógio sim).
+  setInterval(function () { if (dash.data('canais').status === 'ok') { desenha(); ajustaTv(); } }, 60000);
+
+  // ---- Modo TV: escala para caber na tela e reveza as três telas.
+  var qTv = /[?&]tv=([^&]*)/.exec(location.search);
+  var mqTv = window.matchMedia('(orientation: landscape) and (min-width: 900px)');
+  var BASE_TV = 1600; // largura de desenho: os 6 canais cabem lado a lado
+  var VISTAS = [['canais', 40], ['prazos', 15]]; // segundos em cada tela; "Corte e coleta" saiu do rodízio a pedido da equipe (2026-11-05)
+  var vistaI = 0, vistaTimer = null;
+  function ehTv() { return qTv ? qTv[1] !== '0' : mqTv.matches; }
+  function ajustaTv() {
+    var exp = document.querySelector('.exp'), html = document.documentElement;
+    html.classList.toggle('tv', ehTv());
+    if (!ehTv()) { exp.style.transform = ''; exp.style.width = ''; return; }
+    var iw = window.innerWidth, ih = window.innerHeight;
+    exp.style.transform = ''; exp.style.width = BASE_TV + 'px';
+    var z = Math.min(iw / BASE_TV, ih / exp.scrollHeight);
+    exp.style.width = (iw / z) + 'px';                       // ocupa a largura toda depois da escala
+    z = Math.min(z, ih / exp.scrollHeight);                  // mais largo pode mudar a altura: confere de novo
+    exp.style.width = (iw / z) + 'px';
+    exp.style.transform = 'scale(' + z + ')';
+  }
+  function mostraVista() {
+    var v = VISTAS[vistaI][0];
+    document.documentElement.dataset.vista = v;
+    document.querySelectorAll('#tvVista span').forEach(function (s) { s.classList.toggle('on', s.getAttribute('data-v') === v); });
+    ajustaTv();
+  }
+  function proximaVista() {
+    clearTimeout(vistaTimer);
+    if (ehTv()) { mostraVista(); vistaTimer = setTimeout(function () { vistaI = (vistaI + 1) % VISTAS.length; proximaVista(); }, VISTAS[vistaI][1] * 1000); }
+    else { delete document.documentElement.dataset.vista; ajustaTv(); vistaTimer = setTimeout(proximaVista, 5000); }
+  }
+  window.addEventListener('resize', ajustaTv);
+  // esconde o cursor do mouse parado (TV)
+  var quietoT = null;
+  document.addEventListener('mousemove', function () { document.documentElement.classList.remove('quieto'); clearTimeout(quietoT); quietoT = setTimeout(function () { document.documentElement.classList.add('quieto'); }, 3000); });
+  document.documentElement.classList.add('quieto');
+
+  dash.onData(function () { desenha(); ajustaTv(); });
+  proximaVista();
+})();
+</script>
+</body>
+</html>
